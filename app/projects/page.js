@@ -7,7 +7,7 @@ export default function Projects() {
       id: 1,
       title: "Swivly",
       description: "A platform for students to find accommodations, buy/sell items and more.",
-      image: "/projects/swivly.jpg",
+      image: "/projects/swivly.png",
       tags: ["Django", "PostgreSQL", "HTML5"],
       demoUrl: "https://example.com",
       githubUrl: "https://github.com/codeAKstan/Swivly",
@@ -17,7 +17,7 @@ export default function Projects() {
       title: "Quiz-it",
       description:
         "A quiz platform where users take quizzes and earn rewards. Designed and implemented the quiz system, created reward mechanisms.",
-      image: "/projects/quiz-it.jpg",
+      image: "/projects/quiz-it.png",
       tags: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
       demoUrl: "https://example.com",
       githubUrl: "https://github.com/codeAKstan/quiz_it-project",

@@ -39,7 +39,6 @@ export default function AboutPreview() {
               deliver exceptional performance.
             </p>
             <p className="text-gray-600 mb-6">
-              Currently completing the ALX Software Engineering Program with a specialization in backend development,
               I've worked on various projects ranging from quiz platforms to student accommodation systems. I'm
               constantly learning and exploring new technologies to stay at the forefront of backend development.
             </p>
