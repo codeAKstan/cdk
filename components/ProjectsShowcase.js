@@ -17,18 +17,17 @@ export default function ProjectsShowcase() {
       description: "A platform for students to find accommodations, buy/sell items and more.",
       image: "/swivly.png?height=300&width=500",
       tags: ["Django", "PostgreSQL", "HTML5"],
-      demoUrl: "https://example.com",
+      demoUrl: "",
       githubUrl: "https://github.com/codeAKstan/Swivly",
     },
     {
       id: 2,
-      title: "Quiz-it",
-      description:
-        "A quiz platform where users take quizzes and earn rewards. Designed and implemented the quiz system and reward mechanisms.",
-      image: "/quiz-it.png?height=300&width=500",
-      tags: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
-      demoUrl: "https://example.com",
-      githubUrl: "https://github.com/codeAKstan/quiz_it-project",
+      title: "Volt",
+      description: "Volt helps you manage workspace availability and provides data-driven insights for efficient office space usage.",
+      image: "/volt.png?height=300&width=500",
+      tags: ["Nextjs", "Django", "PotsgreSQL", ],
+      demoUrl: "",
+      githubUrl: "https://github.com/codeAKstan/Volt",
     },
     {
       id: 3,
@@ -93,14 +92,14 @@ export default function ProjectsShowcase() {
                 ))}
               </div>
               <div className="flex space-x-4">
-                <a
+                {/* <a
                   href={project.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:text-blue-700 font-medium"
                 >
                   Live Demo
-                </a>
+                </a> */}
                 <a
                   href={project.githubUrl}
                   target="_blank"
