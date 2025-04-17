@@ -24,12 +24,12 @@ export default function Projects() {
     },
     {
       id: 3,
-      title: "Backend API Service",
-      description: "RESTful API service built with Django REST Framework for a mobile application.",
-      image: "/projects/api.jpg",
-      tags: ["Python", "Django", "REST API", "PostgreSQL"],
-      demoUrl: "https://example.com",
-      githubUrl: "https://github.com/codeAKstan",
+      title: "ValueCycle",
+      description: "Marketplace where quality products find new homes, reducing waste and creating value for everyone.",
+      image: "/valuecycle.png?height=300&width=500",
+      tags: ["REACT", "VITE"],
+      demoUrl: "https://value-cycle.vercel.app/",
+      githubUrl: "https://github.com/codeAKstan/ValueCycle",
     },
     {
       id: 4,
