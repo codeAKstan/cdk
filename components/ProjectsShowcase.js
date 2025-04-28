@@ -38,15 +38,15 @@ export default function ProjectsShowcase() {
       demoUrl: "https://value-cycle.vercel.app/",
       githubUrl: "https://github.com/codeAKstan/ValueCycle",
     },
-    {
-      id: 4,
-      title: "DeFiPass",
-      description: "Walletless Solana DeFi via walletless passkey authentication.",
-      image: "/defi.png?height=300&width=500",
-      tags: ["REACT", "VITE"],
-      demoUrl: "https://defipass.vercel.app/",
-      githubUrl: "https://github.com/codeAKstan/defipass",
-    },
+    // {
+    //   id: 4,
+    //   title: "DeFiPass",
+    //   description: "Walletless Solana DeFi via walletless passkey authentication.",
+    //   image: "/defi.png?height=300&width=500",
+    //   tags: ["REACT", "VITE"],
+    //   demoUrl: "https://defipass.vercel.app/",
+    //   githubUrl: "https://github.com/codeAKstan/defipass",
+    // },
   ]
 
   const container = {
