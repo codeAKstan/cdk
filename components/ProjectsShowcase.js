@@ -26,7 +26,7 @@ export default function ProjectsShowcase() {
       description: "Volt helps you manage workspace availability and provides data-driven insights for efficient office space usage.",
       image: "/volt.png?height=300&width=500",
       tags: ["Nextjs", "Django", "PotsgreSQL", ],
-      demoUrl: "",
+      demoUrl: "https://volt-coral.vercel.app/",
       githubUrl: "https://github.com/codeAKstan/Volt",
     },
     {
@@ -101,14 +101,14 @@ export default function ProjectsShowcase() {
                 ))}
               </div>
               <div className="flex space-x-4">
-                {/* <a
+                { <a
                   href={project.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:text-blue-700 font-medium"
                 >
                   Live Demo
-                </a> */}
+                </a> }
                 <a
                   href={project.githubUrl}
                   target="_blank"
