@@ -8,11 +8,11 @@ export default function AddProject() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    image: "",
     tags: "",
     demoUrl: "",
     githubUrl: "",
   })
+  const [image, setImage] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState(null)
   const router = useRouter()
@@ -22,19 +22,30 @@ export default function AddProject() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0])
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!image) {
+      setError("Please select an image to upload.")
+      return
+    }
+
     setIsSubmitting(true)
     setError(null)
+
+    const data = new FormData()
+    data.append("image", image)
+    Object.keys(formData).forEach((key) => {
+      data.append(key, formData[key])
+    })
 
     try {
       const response = await fetch("/api/projects", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          tags: formData.tags.split(",").map((tag) => tag.trim()),
-        }),
+        body: data,
       })
 
       if (!response.ok) {
@@ -100,14 +111,13 @@ export default function AddProject() {
               htmlFor="image"
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              Image URL
+              Image
             </label>
             <input
-              type="text"
+              type="file"
               id="image"
               name="image"
-              value={formData.image}
-              onChange={handleChange}
+              onChange={handleImageChange}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
