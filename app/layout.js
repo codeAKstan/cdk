@@ -1,8 +1,7 @@
 import { Inter } from "next/font/google"
 import "./globals.css"
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
 import NextAuthProvider from "@/components/NextAuthProvider"
+import ConditionalLayout from "@/components/ConditionalLayout"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -16,9 +15,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         <NextAuthProvider>
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+          <ConditionalLayout>
+            {children}
+          </ConditionalLayout>
         </NextAuthProvider>
       </body>
     </html>
