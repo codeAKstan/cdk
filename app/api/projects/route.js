@@ -3,6 +3,8 @@ import connectDB from '@/lib/mongodb';
 import Project from '@/models/Project';
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 
 export async function GET() {
     try {
@@ -15,6 +17,12 @@ export async function GET() {
 }
 
 export async function POST(request) {
+    const session = await getServerSession(authOptions)
+
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    
     try {
         await connectDB();
         const data = await request.formData();
