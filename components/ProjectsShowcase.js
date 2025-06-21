@@ -17,7 +17,7 @@ export default function ProjectsShowcase() {
       description: "A platform for students to find accommodations, buy/sell items and more.",
       image: "/swivly.png?height=300&width=500",
       tags: ["Django", "PostgreSQL", "HTML5"],
-      demoUrl: "",
+      // demoUrl: "",
       githubUrl: "https://github.com/codeAKstan/Swivly",
     },
     {
