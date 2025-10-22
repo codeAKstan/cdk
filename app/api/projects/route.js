@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import Project from '@/models/Project';
-import { writeFile } from 'fs/promises';
-import { join } from 'path';
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { put } from '@vercel/blob';
 
 export async function GET() {
     try {
@@ -17,7 +16,7 @@ export async function GET() {
 }
 
 export async function POST(request) {
-    const session = await getServerSession(authOptions)
+    const session = await getServerSession(authOptions);
 
     if (!session) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -28,15 +27,17 @@ export async function POST(request) {
         const data = await request.formData();
         const image = data.get('image');
 
-        if (!image) {
+        if (!image || typeof image === 'string') {
             return NextResponse.json({ error: 'No image provided' }, { status: 400 });
         }
 
-        const bytes = await image.arrayBuffer();
-        const buffer = Buffer.from(bytes);
-
-        const imagePath = join(process.cwd(), 'public', 'uploads', image.name);
-        await writeFile(imagePath, buffer);
+        // Upload image to Vercel Blob
+        const fileName = `${Date.now()}-${image.name}`;
+        const blob = await put(`projects/${fileName}`, image, {
+            access: 'public',
+            token: process.env.BLOB_READ_WRITE_TOKEN,
+            contentType: image.type || 'application/octet-stream',
+        });
 
         const projectData = {};
         data.forEach((value, key) => {
@@ -45,8 +46,8 @@ export async function POST(request) {
             }
         });
 
-        projectData.image = `/uploads/${image.name}`;
-        projectData.tags = projectData.tags.split(',').map(tag => tag.trim());
+        projectData.image = blob.url;
+        projectData.tags = (projectData.tags || '').split(',').map(tag => tag.trim()).filter(Boolean);
 
         const project = await Project.create(projectData);
 
