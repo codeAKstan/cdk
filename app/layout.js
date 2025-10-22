@@ -2,6 +2,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import NextAuthProvider from "@/components/NextAuthProvider"
 import ConditionalLayout from "@/components/ConditionalLayout"
+import WhatsAppWidget from "@/components/WhatsAppWidget"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
           <ConditionalLayout>
             {children}
           </ConditionalLayout>
+          <WhatsAppWidget />
         </NextAuthProvider>
       </body>
     </html>
