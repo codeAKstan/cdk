@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -60,7 +61,7 @@ export default function LoginPage() {
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-2">
             <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Password
             </label>
@@ -73,6 +74,11 @@ export default function LoginPage() {
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+          </div>
+          <div className="mb-6 text-right">
+            <Link href="/login/forgot" className="text-sm text-blue-600 hover:underline">
+              Forgot password?
+            </Link>
           </div>
           <button
             type="submit"
