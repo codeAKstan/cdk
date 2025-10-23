@@ -65,11 +65,11 @@ export default function ProjectsShowcase() {
   }
 
   return (
-    <section className="py-20">
+    <section className="py-12 md:py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Featured Projects</h2>
+          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
             Here are some of my recent projects. Each project represents different skills and technologies I've mastered
             in backend development.
           </p>
@@ -80,7 +80,7 @@ export default function ProjectsShowcase() {
           variants={container}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {projects.map((project) => (
             <motion.div
@@ -88,7 +88,7 @@ export default function ProjectsShowcase() {
               variants={item}
               className="card hover:scale-105 transition-transform duration-300"
             >
-              <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
+              <div className="relative h-40 sm:h-48 mb-4 overflow-hidden rounded-lg">
                 <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
               </div>
               <h3 className="text-xl font-bold mb-2">{project.title}</h3>

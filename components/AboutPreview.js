@@ -10,9 +10,9 @@ export default function AboutPreview() {
   const isInView = useInView(ref, { once: true, threshold: 0.2 })
 
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-12 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
@@ -32,13 +32,13 @@ export default function AboutPreview() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold mb-6">About Me</h2>
-            <p className="text-gray-600 mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">About Me</h2>
+            <p className="text-gray-600 text-base sm:text-lg mb-6">
               I'm a passionate backend developer with expertise in building scalable web applications. With a strong
               foundation in Python, PHP, and database technologies, I create robust, efficient backend systems that
               deliver exceptional performance.
             </p>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 text-base sm:text-lg mb-6">
               I've worked on various projects ranging from quiz platforms to student accommodation systems. I'm
               constantly learning and exploring new technologies to stay at the forefront of backend development.
             </p>

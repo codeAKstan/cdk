@@ -109,7 +109,7 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 z-10 pt-20">
         <div className="max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
               <span>Hi, I'm </span>
               <span className="hero-gradient">codeAKstan</span>
             </h1>
@@ -120,7 +120,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-gray-700">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-gray-700">
               Software Developer & Web Enthusiast
             </h2>
           </motion.div>
@@ -130,7 +130,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 max-w-2xl">
               I build exceptional digital experiences with modern technologies. Specializing in Next.js, React, and
               Tailwind CSS to create fast, responsive, and user-friendly applications.
             </p>

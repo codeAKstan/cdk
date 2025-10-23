@@ -19,11 +19,11 @@ export default function SkillsSection() {
   ]
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 md:py-20 bg-gray-50">
       <div ref={ref} className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">My Skills</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">My Skills</h2>
+          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
             I've worked with a variety of technologies and frameworks. Here's a visualization of my technical skills.
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function SkillsSection() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-12 md:mt-16 text-center">
           <h3 className="text-xl font-bold mb-6">Other Technologies I Work With</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {[
