@@ -1,3 +1,5 @@
+import LogoutButton from '@/components/LogoutButton';
+
 export default function AdminLayout({ children }) {
     return (
       <div className="min-h-screen flex overflow-hidden bg-background-dark text-slate-100">
@@ -25,6 +27,7 @@ export default function AdminLayout({ children }) {
               <span className="material-symbols-outlined text-lg">settings</span>
               System Settings
             </a>
+            <LogoutButton />
           </nav>
           <div className="p-4 border-t border-panel-border">
             <div className="p-4 bg-surface-dark border border-panel-border rounded-lg">
@@ -55,7 +58,7 @@ export default function AdminLayout({ children }) {
                   <p className="text-xs font-bold">ADMIN_ROOT</p>
                   <p className="text-[10px] text-primary">AUTHORIZED</p>
                 </div>
-                <div className="size-10 rounded bg-surface-dark border border-panel-border flex items-center justify-center">
+                <div className="w-10 h-10 rounded bg-surface-dark border border-panel-border flex items-center justify-center">
                   <span className="material-symbols-outlined text-slate-300">person</span>
                 </div>
               </div>

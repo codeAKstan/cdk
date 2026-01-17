@@ -1,4 +1,5 @@
 import "./globals.css"
+import NextAuthProvider from "@/components/NextAuthProvider";
 
 export const metadata = {
   title: "codeAKstan // Software Architect Portfolio",
