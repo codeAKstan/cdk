@@ -1,26 +1,21 @@
-import { Inter } from "next/font/google"
 import "./globals.css"
-import NextAuthProvider from "@/components/NextAuthProvider"
-import ConditionalLayout from "@/components/ConditionalLayout"
-import WhatsAppWidget from "@/components/WhatsAppWidget"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Obumneme Anigbo | Backend Developer",
-  description: "Portfolio website of a passionate backend developer specializing in Python, Django, PHP, and MySQL",
+  title: "codeAKstan // Software Architect Portfolio",
+  description: "Engineering high-performance backends and clinical frontends.",
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
-        <NextAuthProvider>
-          <ConditionalLayout>
-            {children}
-          </ConditionalLayout>
-          <WhatsAppWidget />
-        </NextAuthProvider>
+    <html lang="en" className="dark">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+      </head>
+      <body className="font-display bg-background-dark text-slate-100 transition-colors duration-300">
+        {children}
       </body>
     </html>
   )
