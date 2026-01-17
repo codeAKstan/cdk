@@ -15,7 +15,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Email Address</p>
-                  <p className="text-white font-mono hover:text-primary transition-colors">architect@codeakstan.dev</p>
+                  <p className="text-white font-mono hover:text-primary transition-colors">codeakstan@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-6 group cursor-pointer">
@@ -24,7 +24,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Location</p>
-                  <p className="text-white font-mono">Berlin, Germany // Remote</p>
+                  <p className="text-white font-mono">Jupiter // Remote</p>
                 </div>
               </div>
             </div>

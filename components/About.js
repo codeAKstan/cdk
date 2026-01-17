@@ -5,7 +5,7 @@ export default function About() {
           <div className="relative">
             <div className="aspect-square rounded-xl bg-surface-dark border border-white/10 overflow-hidden relative group">
               <div className="absolute inset-0 bg-primary/20 mix-blend-overlay group-hover:bg-transparent transition-all duration-700"></div>
-              <img alt="Professional portrait of a software architect" className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDna8B6Xhef38AYy8FZo0kCUuwXdsdQCVXlAyUayZEXGbKHjNh-QI5T5EonhlTx9YODaeNTIXYGQDYe5R8cOQGfb91yaqVfJ_DPm86Zk-71Y7WL8TGjxFjkUaLOw38hXaAwEzuWu2UOCS5tEb0iFGqxSW2wMUqliMIhu7Kd9uZhL4U96D-s1V1BdtunUGw7P4nP8fcekmqpSa1gSh5xUQzJapbXIhCoZIotsoKS-gJp9AwzToAC_NKDkanioINPmGD4Y-yvtWkbPdI" />
+              <img alt="Professional portrait of a software architect" className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700" src="/me.png" />
               <div className="absolute bottom-4 left-4 right-4 p-4 bg-background-dark/80 backdrop-blur border border-white/10 rounded-lg">
                 <p className="mono-text text-[10px] text-primary mb-1 tracking-widest uppercase">System Integrity Check</p>
                 <div className="h-1 bg-white/10 rounded-full overflow-hidden">

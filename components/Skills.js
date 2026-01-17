@@ -49,11 +49,11 @@ export default function Skills() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Storage</span>
-                  <span className="text-white mono-text text-sm">PostgreSQL / Redis</span>
+                  <span className="text-white mono-text text-sm">PostgreSQL / MySQL / MongoDB</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Message</span>
-                  <span className="text-white mono-text text-sm">Kafka / RabbitMQ</span>
+                  <span className="text-white mono-text text-sm"> RabbitMQ</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Security</span>
@@ -70,8 +70,8 @@ export default function Skills() {
                 <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Kubernetes</span>
                 <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Terraform</span>
                 <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">CI/CD Pipelines</span>
-                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Prometheus</span>
-                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Prometheus</span>
+                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Docker</span>
+                {/* <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Prometheus</span> */}
               </div>
             </div>
           </div>
