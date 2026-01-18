@@ -17,6 +17,7 @@ export default function ProjectsPage() {
         demoUrl: "",
         githubUrl: ""
     });
+    const [editingId, setEditingId] = useState(null);
     const [tagInput, setTagInput] = useState("");
     const [image, setImage] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -56,6 +57,32 @@ export default function ProjectsPage() {
         } catch (error) {
             console.error("Error deleting project", error);
         }
+    };
+
+    const handleEdit = (project) => {
+        setEditingId(project._id);
+        setFormData({
+            title: project.title,
+            description: project.description,
+            tags: project.tags,
+            demoUrl: project.demoUrl || "",
+            githubUrl: project.githubUrl || ""
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const handleCancelEdit = () => {
+        setEditingId(null);
+        setFormData({
+            title: "",
+            description: "",
+            tags: [],
+            demoUrl: "",
+            githubUrl: ""
+        });
+        setImage(null);
+        setTagInput("");
+        if(fileInputRef.current) fileInputRef.current.value = "";
     };
 
     // Form Handlers
@@ -195,6 +222,12 @@ export default function ProjectsPage() {
                                     </div>
                                 </div>
                                 <div className="flex gap-2">
+                                    <button 
+                                        onClick={() => handleEdit(project)}
+                                        className="size-10 flex items-center justify-center rounded border border-border-dark hover:border-primary text-slate-500 hover:text-primary transition-all"
+                                    >
+                                        <span className="material-symbols-outlined text-lg">edit</span>
+                                    </button>
                                     <button 
                                         onClick={() => handleDelete(project._id)}
                                         className="size-10 flex items-center justify-center rounded border border-border-dark hover:border-red-500 text-slate-500 hover:text-red-500 transition-all"
