@@ -1,79 +1,29 @@
-import Link from "next/link"
-import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi"
-
 export default function Footer() {
-  return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <Link href="/" className="text-2xl font-bold">
-              <span className="flex items-center">
-                <span className="text-3xl">{"<"}</span>
-                <span>CodeAKstan</span>
-                <span className="text-3xl">{"/>"}</span>
-              </span>
-            </Link>
-            <p className="mt-4 text-gray-400">Building scalable backend solutions with modern technologies.</p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-gray-400 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/projects" className="text-gray-400 hover:text-white transition-colors">
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Connect With Me</h3>
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/codeAKstan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <FiGithub size={20} />
-              </a>
-              <a
-                href="https://linkedin.com/in/codeAKstan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <FiLinkedin size={20} />
-              </a>
-              <a href="mailto:codeakstan@gmail.com" className="text-gray-400 hover:text-white transition-colors">
-                <FiMail size={20} />
-              </a>
+    return (
+      <footer className="py-12 border-t border-white/10 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <div className="flex items-center gap-2">
+              <div className="size-4 bg-primary rounded-sm"></div>
+              <span className="mono-text font-bold text-white uppercase tracking-tighter">codeAKstan</span>
             </div>
-            <p className="mt-4 text-gray-400">Feel free to reach out for collaborations or just a friendly chat!</p>
+            <p className="text-[10px] text-slate-500 mono-text">© {new Date().getFullYear()} DIGITAL_ARCHITECT_CORE. ALL RIGHTS RESERVED.</p>
+          </div>
+          {/* <div className="flex gap-8">
+            <a className="text-slate-400 hover:text-primary transition-colors" href="#">
+              <svg className="size-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+            </a>
+            <a className="text-slate-400 hover:text-primary transition-colors" href="#">
+              <svg className="size-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+            </a>
+            <a className="text-slate-400 hover:text-primary transition-colors" href="#">
+              <span className="material-symbols-outlined text-3xl">terminal</span>
+            </a>
+          </div> */}
+          <div className="mono-text text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+            System Status: <span className="text-primary">Optimized</span>
           </div>
         </div>
-
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Obumneme Anigbo. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
-  )
-}
+      </footer>
+    )
+  }
