@@ -7,7 +7,7 @@ export default function Projects() {
               <span className="mono-text text-primary text-xs font-bold tracking-[0.4em] uppercase mb-4 block">Deployment Log</span>
               <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white">SELECTED WORKS</h2>
             </div>
-            <a className="group flex items-center gap-3 text-sm font-bold tracking-widest uppercase text-slate-500 hover:text-primary transition-colors" href="#">
+            <a className="group flex items-center gap-3 text-sm font-bold tracking-widest uppercase text-slate-500 hover:text-primary transition-colors" href="/projects">
               <span>Archive.git</span>
               <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_right_alt</span>
             </a>

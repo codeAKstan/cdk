@@ -25,10 +25,10 @@ export default function Hero() {
               <span>Initialize Projects</span>
               <span className="material-symbols-outlined">arrow_forward</span>
             </button>
-            <button className="border border-white/20 hover:border-primary/50 text-white px-8 py-4 rounded font-bold text-sm uppercase tracking-widest transition-all bg-white/5 flex items-center justify-center gap-2">
+            <a href="https://github.com/codeakstan" target="_blank" rel="noopener noreferrer" className="border border-white/20 hover:border-primary/50 text-white px-8 py-4 rounded font-bold text-sm uppercase tracking-widest transition-all bg-white/5 flex items-center justify-center gap-2">
               <span className="material-symbols-outlined">code</span>
               <span>Github Core</span>
-            </button>
+            </a>
           </div>
         </div>
       </section>
