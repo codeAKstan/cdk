@@ -59,6 +59,49 @@ export default function ProjectsPage() {
         }
     };
 
+    const handleToggleFeatured = async (project) => {
+        // Count currently featured projects if we are enabling a new one
+        if (!project.featured) {
+            const featuredCount = projects.filter(p => p.featured).length;
+            if (featuredCount >= 3) {
+                alert("You can only select up to 3 projects. Please unselect one first.");
+                return;
+            }
+        }
+
+        const newFeatured = !project.featured;
+        
+        // Optimistic update
+        setProjects(prev => prev.map(p => 
+            p._id === project._id ? { ...p, featured: newFeatured } : p
+        ));
+
+        try {
+            const formData = new FormData();
+            formData.append('id', project._id);
+            formData.append('featured', newFeatured);
+
+            const res = await fetch("/api/projects", {
+                method: "PUT",
+                body: formData,
+            });
+
+            if (!res.ok) {
+                // Revert if failed
+                setProjects(prev => prev.map(p => 
+                    p._id === project._id ? { ...p, featured: !newFeatured } : p
+                ));
+                alert("Failed to update featured status");
+            }
+        } catch (err) {
+            console.error("Error updating featured status", err);
+            // Revert
+             setProjects(prev => prev.map(p => 
+                p._id === project._id ? { ...p, featured: !newFeatured } : p
+            ));
+        }
+    };
+
     const handleEdit = (project) => {
         setEditingId(project._id);
         setFormData({
@@ -222,6 +265,13 @@ export default function ProjectsPage() {
                                     </div>
                                 </div>
                                 <div className="flex gap-2">
+                                    <button 
+                                        onClick={() => handleToggleFeatured(project)}
+                                        className={`size-10 flex items-center justify-center rounded border ${project.featured ? 'border-primary text-primary' : 'border-border-dark text-slate-500 hover:text-primary hover:border-primary'} transition-all`}
+                                        title={project.featured ? "Remove from Selected Works" : "Add to Selected Works"}
+                                    >
+                                        <span className="material-symbols-outlined text-lg">{project.featured ? 'star' : 'star_border'}</span>
+                                    </button>
                                     <button 
                                         onClick={() => handleEdit(project)}
                                         className="size-10 flex items-center justify-center rounded border border-border-dark hover:border-primary text-slate-500 hover:text-primary transition-all"
