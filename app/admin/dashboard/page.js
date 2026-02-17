@@ -48,7 +48,7 @@ export default function DashboardPage() {
               <div className="mb-3 flex gap-4">
                 <span className="text-slate-600">[2024-05-20 14:22:01]</span>
                 <span className="text-primary">[INFO]</span>
-                <span className="text-slate-300">Deployment successful: Project 'NEURAL-VIS' updated to v2.4.1</span>
+                <span className="text-slate-300">Deployment successful: Project 'SWIVLY' updated to v1.2.0</span>
               </div>
               <div className="mb-3 flex gap-4">
                 <span className="text-slate-600">[2024-05-20 12:45:10]</span>
@@ -94,28 +94,28 @@ export default function DashboardPage() {
             <div className="p-4 space-y-4">
               <div className="p-4 border border-panel-border rounded flex items-center justify-between group cursor-pointer hover:bg-white/5 transition-colors">
                 <div>
-                  <h4 className="text-xs font-bold text-white mb-1">QUANTUM-LEDGER</h4>
+                  <h4 className="text-xs font-bold text-white mb-1">VOLT</h4>
                   <p className="text-[9px] text-slate-500 font-mono">STATUS: BETA_ENV</p>
                 </div>
                 <span className="material-symbols-outlined text-primary text-sm">open_in_new</span>
               </div>
               <div className="p-4 border border-panel-border rounded flex items-center justify-between group cursor-pointer hover:bg-white/5 transition-colors">
                 <div>
-                  <h4 className="text-xs font-bold text-white mb-1">ORBIT-API</h4>
-                  <p className="text-[9px] text-slate-500 font-mono">STATUS: STABLE</p>
+                  <h4 className="text-xs font-bold text-white mb-1">VALUECYCLE</h4>
+                  <p className="text-[9px] text-slate-500 font-mono">STATUS: LIVE</p>
                 </div>
                 <span className="material-symbols-outlined text-primary text-sm">open_in_new</span>
               </div>
               <div className="p-4 border border-panel-border rounded flex items-center justify-between group cursor-pointer hover:bg-white/5 transition-colors">
                 <div>
-                  <h4 className="text-xs font-bold text-white mb-1">NEURAL-VIS</h4>
+                  <h4 className="text-xs font-bold text-white mb-1">SWIVLY</h4>
                   <p className="text-[9px] text-slate-500 font-mono">STATUS: PRODUCTION</p>
                 </div>
                 <span className="material-symbols-outlined text-primary text-sm">open_in_new</span>
               </div>
               <div className="p-4 border border-panel-border rounded flex items-center justify-between group cursor-pointer hover:bg-white/5 transition-colors">
                 <div>
-                  <h4 className="text-xs font-bold text-white mb-1">GHOST-NET</h4>
+                  <h4 className="text-xs font-bold text-white mb-1">OLD-PORTFOLIO</h4>
                   <p className="text-[9px] text-slate-500 font-mono">STATUS: DEPRECATED</p>
                 </div>
                 <span className="material-symbols-outlined text-slate-700 text-sm">archive</span>

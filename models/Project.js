@@ -24,6 +24,10 @@ const ProjectSchema = new mongoose.Schema({
     githubUrl: {
         type: String,
         required: [true, 'Please provide a GitHub URL']
+    },
+    featured: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true

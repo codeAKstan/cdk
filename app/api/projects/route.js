@@ -5,10 +5,18 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { put } from '@vercel/blob';
 
-export async function GET() {
+export async function GET(request) {
     try {
         await connectDB();
-        const projects = await Project.find({}).sort({ createdAt: -1 });
+        const { searchParams } = new URL(request.url);
+        const featured = searchParams.get('featured');
+        
+        let query = {};
+        if (featured === 'true') {
+            query.featured = true;
+        }
+        
+        const projects = await Project.find(query).sort({ createdAt: -1 });
         return NextResponse.json(projects);
     } catch (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });
@@ -80,6 +88,7 @@ export async function PUT(request) {
         if (data.has('description')) project.description = data.get('description');
         if (data.has('demoUrl')) project.demoUrl = data.get('demoUrl');
         if (data.has('githubUrl')) project.githubUrl = data.get('githubUrl');
+        if (data.has('featured')) project.featured = data.get('featured') === 'true';
         if (data.has('tags')) {
             project.tags = (data.get('tags') || '').split(',').map(tag => tag.trim()).filter(Boolean);
         }
