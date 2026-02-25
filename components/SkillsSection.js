@@ -13,9 +13,9 @@ export default function SkillsSection() {
     { name: "Django", level: 80 },
     { name: "MySQL", level: 85 },
     { name: "PostgreSQL", level: 75 },
-    { name: "Flask", level: 70 },
+    // { name: "Flask", level: 70 },
     { name: "HTML/CSS", level: 80 },
-    { name: "JavaScript", level: 65 },
+    { name: "JavaScript", level: 85 },
   ]
 
   return (
