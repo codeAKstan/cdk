@@ -7,9 +7,9 @@ export default function About() {
           <div className="relative order-2 md:order-1">
             <div className="aspect-square bg-white sketch-border p-4 shadow-[10px_10px_0px_0px_rgba(44,44,44,0.05)] transform -rotate-1">
               <div className="w-full h-full bg-[#cbd5e1]/20 overflow-hidden relative grayscale sepia-[0.2] hover:grayscale-0 transition-all duration-700">
-                <img alt="Professional portrait" className="w-full h-full object-cover mix-blend-multiply" src="/me.png" />
+                <img alt="Professional portrait" className="w-full h-full object-cover mix-blend-multiply" src="/me.jpeg" />
                 <div className="absolute top-2 left-2 right-2 flex justify-between px-2 font-note text-xs opacity-50">
-                    <span>img_src: me.png</span>
+                    <span>img_src: me.jpeg</span>
                     <span>01/01/2024</span>
                 </div>
               </div>

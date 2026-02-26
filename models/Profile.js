@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const ProfileSchema = new mongoose.Schema({
     name: {
         type: String,
-        default: 'Alex Rivers'
+        default: 'Obum neme'
     },
     headline: {
         type: String,

@@ -6,7 +6,7 @@ export default function Stats() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12">
           {[
             { label: "Years Experience", value: "05+" },
-            { label: "Repositories", value: "110+" },
+            { label: "Projects", value: "120+" },
             { label: "Avg Latency", value: "24ms" },
             { label: "System Uptime", value: "99.9%" }
           ].map((stat, idx) => (
