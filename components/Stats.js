@@ -1,23 +1,26 @@
+'use client';
+
 export default function Stats() {
     return (
-      <section className="py-12 border-y border-white/5 bg-surface-dark/30 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="flex flex-col">
-            <span className="text-primary mono-text text-3xl font-bold tracking-tighter">05+</span>
-            <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mt-1">Years Experience</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-primary mono-text text-3xl font-bold tracking-tighter">110+</span>
-            <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mt-1">Repositories</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-primary mono-text text-3xl font-bold tracking-tighter">24ms</span>
-            <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mt-1">Avg Latency Achieved</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-primary mono-text text-3xl font-bold tracking-tighter">99.9%</span>
-            <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mt-1">System Uptime</span>
-          </div>
+      <section className="py-20 border-y-2 border-dashed border-[#2c2c2c]/10">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12">
+          {[
+            { label: "Years Experience", value: "05+" },
+            { label: "Repositories", value: "110+" },
+            { label: "Avg Latency", value: "24ms" },
+            { label: "System Uptime", value: "99.9%" }
+          ].map((stat, idx) => (
+            <div key={idx} className="flex flex-col items-center md:items-start group">
+              <span className="font-sketch text-5xl md:text-6xl text-[#2c2c2c] group-hover:text-[#ff8a65] transition-colors">
+                {stat.value}
+              </span>
+              <span className="font-note text-lg text-[#666] mt-2">
+                {stat.label}
+              </span>
+              {/* Decorative underline */}
+              <div className="w-16 h-1 bg-[#2c2c2c]/5 mt-1 rounded-full group-hover:bg-[#ff8a65]/20 transition-all"></div>
+            </div>
+          ))}
         </div>
       </section>
     )

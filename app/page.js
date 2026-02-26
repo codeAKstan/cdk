@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-16 grid-bg">
+      <main className="relative z-10">
         <Hero />
         <Stats />
         <About />

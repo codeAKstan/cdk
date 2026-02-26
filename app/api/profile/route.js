@@ -36,6 +36,7 @@ export async function PUT(request) {
         }
 
         // Update text fields
+        if (data.has('name')) profile.name = data.get('name');
         if (data.has('headline')) profile.headline = data.get('headline');
         if (data.has('bio')) profile.bio = data.get('bio');
         if (data.has('skills')) {
