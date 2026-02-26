@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <main ref={mainRef} className="bg-[#f8f5f2] selection:bg-[#ff8a65]/30 overflow-x-hidden">
-      <Header />
+      {/* <Header /> */}
 
       <Hero />
       <Stats />
