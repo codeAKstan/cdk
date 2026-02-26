@@ -1,11 +1,14 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import SketchedBorder from './SketchedBorder';
 
 export default function Projects() {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         const fetchProjects = async () => {
@@ -58,9 +61,32 @@ export default function Projects() {
         fetchProjects();
     }, []);
 
+    useGSAP(() => {
+        if (loading || projects.length === 0) return;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "play reverse play reverse",
+            }
+        });
+
+        tl.from(".projects-header", { opacity: 0, y: 30, duration: 0.8, ease: "power2.out" })
+          .from(".project-card", {
+            opacity: 0,
+            y: 50,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: "back.out(1.2)"
+          }, "-=0.4");
+
+    }, { dependencies: [loading, projects], scope: containerRef });
+
     if (loading) {
         return (
-            <section className="py-32 px-6" id="projects">
+            <section className="story-wrapper min-h-screen flex items-center justify-center py-32 px-6" id="projects">
                 <div className="max-w-7xl mx-auto text-center font-note text-xl">
                     <p className="animate-pulse">Loading Selected Works...</p>
                 </div>
@@ -71,9 +97,9 @@ export default function Projects() {
     if (projects.length === 0) return null;
 
     return (
-      <section className="py-32 px-6 border-y-2 border-dashed border-[#2c2c2c]/10" id="projects">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <section ref={containerRef} className="story-wrapper min-h-screen flex items-center justify-center py-32 px-6 border-y-2 border-dashed border-[#2c2c2c]/10" id="projects">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="projects-header flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
               <span className="font-note text-[#ff8a65] text-lg font-bold uppercase mb-2 block tracking-widest">Deployment Log</span>
               <h2 className="text-4xl md:text-6xl font-sketch text-[#2c2c2c] relative inline-block">
@@ -88,10 +114,10 @@ export default function Projects() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {projects.map((project, index) => (
-                <motion.div
+                <SketchedBorder
                     key={project._id}
-                    whileHover={{ y: -10, rotate: index % 2 === 0 ? 1 : -1 }}
-                    className="sketch-border bg-white overflow-hidden group flex flex-col hover:shadow-[12px_12px_0px_0px_rgba(255,138,101,0.2)] transition-all duration-300"
+                    className="project-card bg-white overflow-hidden group flex flex-col hover:shadow-[12px_12px_0px_0px_rgba(255,138,101,0.2)] hover:-translate-y-2 transition-all duration-300"
+                    delay={index * 0.1}
                 >
                   <div className="h-56 bg-[#cbd5e1]/10 relative overflow-hidden border-b-2 border-[#2c2c2c]/10">
                     {project.image && (
@@ -123,7 +149,7 @@ export default function Projects() {
                       <span className="font-note text-xs opacity-30 uppercase tracking-widest">v1.0-release</span>
                     </div>
                   </div>
-                </motion.div>
+                </SketchedBorder>
             ))}
           </div>
         </div>

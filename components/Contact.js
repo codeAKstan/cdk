@@ -1,6 +1,9 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import SketchedBorder from "./SketchedBorder";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,6 +14,23 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play reverse play reverse",
+      }
+    });
+
+    tl.from(".contact-header", { opacity: 0, x: -30, duration: 0.8, ease: "power2.out" })
+      .from(".contact-form", { opacity: 0, x: 30, duration: 0.8, ease: "power2.out" }, "-=0.6")
+      .from(".contact-info-item", { opacity: 0, y: 20, stagger: 0.2, duration: 0.6, ease: "power2.out" }, "-=0.4");
+
+  }, { scope: containerRef });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,28 +67,28 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-32 px-6" id="contact">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
-        <div>
+    <section ref={containerRef} className="story-wrapper min-h-screen flex flex-col items-center justify-center py-32 px-6" id="contact">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 w-full">
+        <div className="contact-header">
           <span className="font-note text-[#ff8a65] text-lg font-bold uppercase mb-2 block tracking-widest">Connection Request</span>
           <h2 className="text-4xl md:text-6xl font-sketch text-[#2c2c2c] mb-8 leading-tight">Initiate<br />Handshake.</h2>
           <p className="font-hand text-2xl text-[#4a4a4a] mb-12 max-w-md leading-relaxed">
             Have a project that requires deep technical expertise? Let's discuss the architectural requirements and build something world-class.
           </p>
           <div className="space-y-8">
-            <div className="flex items-center gap-6 group cursor-pointer">
-              <div className="size-14 sketch-border bg-white flex items-center justify-center text-[#2c2c2c] group-hover:border-[#ff8a65] transition-colors">
+            <div className="contact-info-item flex items-center gap-6 group cursor-pointer">
+              <SketchedBorder className="size-14 bg-white flex items-center justify-center text-[#2c2c2c] group-hover:border-[#ff8a65] transition-colors">
                 <span className="material-symbols-outlined text-3xl">mail</span>
-              </div>
+              </SketchedBorder>
               <div>
                 <p className="font-note text-sm text-[#ff8a65] font-bold uppercase tracking-widest">Email Address</p>
                 <p className="font-hand text-2xl text-[#2c2c2c] hover:text-[#ff8a65] transition-colors">codeakstan@gmail.com</p>
               </div>
             </div>
-            <div className="flex items-center gap-6 group cursor-pointer">
-              <div className="size-14 sketch-border bg-white flex items-center justify-center text-[#2c2c2c] group-hover:border-[#ff8a65] transition-colors">
+            <div className="contact-info-item flex items-center gap-6 group cursor-pointer">
+              <SketchedBorder className="size-14 bg-white flex items-center justify-center text-[#2c2c2c] group-hover:border-[#ff8a65] transition-colors">
                 <span className="material-symbols-outlined text-3xl">share_location</span>
-              </div>
+              </SketchedBorder>
               <div>
                 <p className="font-note text-sm text-[#ff8a65] font-bold uppercase tracking-widest">Location</p>
                 <p className="font-hand text-2xl text-[#2c2c2c]">Jupiter // Remote</p>
@@ -76,7 +96,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        <div className="bg-white sketch-border p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(44,44,44,0.05)] transform rotate-1">
+        <SketchedBorder className="contact-form bg-white p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(44,44,44,0.05)] transform rotate-1">
           <form className="space-y-8" onSubmit={handleSubmit}>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-2">
@@ -153,7 +173,7 @@ export default function Contact() {
               )}
             </button>
           </form>
-        </div>
+        </SketchedBorder>
       </div>
     </section>
   )

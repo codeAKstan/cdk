@@ -1,10 +1,46 @@
 'use client';
 
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import SketchedBorder from './SketchedBorder';
+
 export default function Skills() {
+    const containerRef = useRef(null);
+
+    useGSAP(() => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "play reverse play reverse",
+            }
+        });
+
+        tl.from(".skills-header", { opacity: 0, y: 30, duration: 0.8, ease: "power2.out" })
+          .from(".skill-box", {
+            opacity: 0,
+            scale: 0.95,
+            y: 20,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: "back.out(1.2)"
+          }, "-=0.4")
+          .from(".skill-progress", {
+            scaleX: 0,
+            transformOrigin: "left",
+            stagger: 0.1,
+            duration: 1,
+            ease: "power2.inOut"
+          }, "-=0.6");
+
+    }, { scope: containerRef });
+
     return (
-      <section className="py-32 px-6" id="skills">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
+      <section ref={containerRef} className="story-wrapper min-h-screen flex items-center justify-center py-32 px-6" id="skills">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="skills-header mb-16">
             <span className="font-note text-[#ff8a65] text-lg font-bold uppercase mb-2 block tracking-widest">Tech Stack</span>
             <h2 className="text-4xl md:text-6xl font-sketch text-[#2c2c2c] relative inline-block">
                 System Capabilities
@@ -13,7 +49,7 @@ export default function Skills() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-8">
             {/* Skills Group 1: Frontend */}
-            <div className="md:col-span-2 lg:col-span-2 sketch-border p-8 flex flex-col justify-between hover:bg-white transition-colors transform hover:-rotate-1">
+            <SketchedBorder className="skill-box md:col-span-2 lg:col-span-2 p-8 flex flex-col justify-between hover:bg-white transition-colors transform hover:-rotate-1">
               <div>
                 <span className="material-symbols-outlined text-[#2c2c2c] mb-4 text-3xl">terminal</span>
                 <h4 className="text-2xl font-sketch text-[#2c2c2c] mb-6">Frontend Engineering</h4>
@@ -30,7 +66,7 @@ export default function Skills() {
                       </div>
                       <div className="h-2 bg-[#cbd5e1]/30 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-[#ff8a65]/60 rounded-full"
+                          className="skill-progress h-full bg-[#ff8a65]/60 rounded-full"
                           style={{ width: skill.level }}
                         ></div>
                       </div>
@@ -38,9 +74,9 @@ export default function Skills() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </SketchedBorder>
             {/* Skills Group 2: Core Focus */}
-            <div className="md:col-span-2 lg:col-span-4 bg-[#ff8a65]/5 sketch-border p-8 flex flex-col justify-center relative overflow-hidden group transform rotate-1 hover:rotate-0 transition-transform">
+            <SketchedBorder className="skill-box md:col-span-2 lg:col-span-4 bg-[#ff8a65]/5 p-8 flex flex-col justify-center relative overflow-hidden group transform rotate-1 hover:rotate-0 transition-transform">
               <div className="absolute -right-10 -bottom-10 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-700 pointer-events-none">
                 <span className="material-symbols-outlined text-[300px]">architecture</span>
               </div>
@@ -48,9 +84,9 @@ export default function Skills() {
               <p className="font-hand text-2xl text-[#4a4a4a] max-w-xl leading-relaxed">
                 Expertise in microservices orchestration, event-driven architecture, and highly available distributed systems. I design for scale, security, and developer productivity.
               </p>
-            </div>
+            </SketchedBorder>
             {/* Skills Group 3: Backend */}
-            <div className="md:col-span-2 lg:col-span-3 sketch-border p-8 hover:bg-white transition-colors transform hover:rotate-1">
+            <SketchedBorder className="skill-box md:col-span-2 lg:col-span-3 p-8 hover:bg-white transition-colors transform hover:rotate-1">
               <span className="material-symbols-outlined text-[#2c2c2c] mb-4 text-3xl">database</span>
               <h4 className="text-2xl font-sketch text-[#2c2c2c] mb-6">Backend Infrastructure</h4>
               <div className="grid grid-cols-2 gap-x-8 gap-y-6">
@@ -66,9 +102,9 @@ export default function Skills() {
                     </div>
                 ))}
               </div>
-            </div>
+            </SketchedBorder>
             {/* Skills Group 4: DevOps */}
-            <div className="md:col-span-2 lg:col-span-3 sketch-border p-8 hover:bg-white transition-colors transform hover:-rotate-1">
+            <SketchedBorder className="skill-box md:col-span-2 lg:col-span-3 p-8 hover:bg-white transition-colors transform hover:-rotate-1">
               <span className="material-symbols-outlined text-[#2c2c2c] mb-4 text-3xl">cloud_done</span>
               <h4 className="text-2xl font-sketch text-[#2c2c2c] mb-6">DevOps &amp; Cloud</h4>
               <div className="flex flex-wrap gap-3">
@@ -78,7 +114,7 @@ export default function Skills() {
                     </span>
                 ))}
               </div>
-            </div>
+            </SketchedBorder>
           </div>
         </div>
       </section>
