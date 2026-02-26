@@ -15,7 +15,7 @@ export default function Hero() {
             .catch(err => console.error(err));
     }, []);
 
-    const name = profile?.name || "Obumneme";
+    const name = profile?.name || "Alex Rivers";
     const headline = profile?.headline || "Creative Developer & Digital Architect.";
     const bio = profile?.bio || "I build things with code, coffee, and a very messy sketchbook.";
 

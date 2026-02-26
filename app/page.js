@@ -60,4 +60,17 @@ export default function Home() {
       </div>
     </main>
   );
+    <>
+      <Header />
+      <main className="relative z-10">
+        <Hero />
+        <Stats />
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  )
 }
