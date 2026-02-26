@@ -41,25 +41,6 @@ export default function Home() {
   }, []);
 
   return (
-    <main ref={mainRef} className="bg-[#f8f5f2] selection:bg-[#ff8a65]/30 overflow-x-hidden">
-      {/* <Header /> */}
-
-      <Hero />
-      <Stats />
-      <About />
-      <Projects />
-      <Skills />
-      <Contact />
-
-      {/* Scroll indicator */}
-      <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center opacity-40 hover:opacity-100 transition-opacity cursor-default pointer-events-none">
-        <span className="font-hand text-sm mb-2">Scroll to flip page</span>
-        <div className="w-[1px] h-12 bg-[#2c2c2c] relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-[#ff8a65] animate-scroll-down"></div>
-        </div>
-      </div>
-    </main>
-  );
     <>
       <Header />
       <main className="relative z-10">
