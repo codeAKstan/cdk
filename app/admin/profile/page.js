@@ -5,6 +5,7 @@ import LogoutButton from "@/components/LogoutButton";
 
 export default function ProfilePage() {
     const [profile, setProfile] = useState({
+        name: "",
         headline: "",
         bio: "",
         skills: [],
@@ -40,6 +41,7 @@ export default function ProfilePage() {
     const handleSave = async () => {
         setSaving(true);
         const formData = new FormData();
+        formData.append('name', profile.name);
         formData.append('headline', profile.headline);
         formData.append('bio', profile.bio);
         formData.append('skills', JSON.stringify(profile.skills));
@@ -147,6 +149,15 @@ export default function ProfilePage() {
                                 </h3>
                             </div>
                             <div className="space-y-4">
+                                <div className="group">
+                                    <label className="block mono-text text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-2 group-focus-within:text-primary transition-colors">Display_Name</label>
+                                    <input
+                                        className="w-full bg-black border border-white/10 rounded px-4 py-3 text-white font-mono text-sm focus:outline-none focus:border-primary transition-colors"
+                                        type="text"
+                                        value={profile.name}
+                                        onChange={(e) => setProfile({...profile, name: e.target.value})}
+                                    />
+                                </div>
                                 <div className="group">
                                     <label className="block mono-text text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-2 group-focus-within:text-primary transition-colors">Headline_Input</label>
                                     <input 
