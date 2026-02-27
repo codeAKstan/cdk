@@ -71,20 +71,28 @@ export default function Hero() {
                 </div>
                 <div className="w-56 h-56 md:w-64 md:h-64 border-2 border-dashed border-[#2c2c2c] flex items-center justify-center rounded-lg p-8 relative">
                     <svg viewBox="0 0 100 100" className="w-32 h-32 stroke-[#2c2c2c] fill-none stroke-[1.5]">
-                        {/* Compass handle */}
-                        <circle cx="50" cy="15" r="4" fill="none" stroke="#2c2c2c" />
-                        <line x1="50" y1="19" x2="50" y2="25" />
+                        {/* Interface Box (Top) */}
+                        <rect x="30" y="10" width="40" height="15" rx="2" />
+                        <line x1="40" y1="17" x2="60" y2="17" opacity="0.3" />
+                        <line x1="40" y1="20" x2="50" y2="20" opacity="0.3" />
 
-                        {/* Compass legs */}
-                        <path d="M50 25 L35 85" />
-                        <path d="M50 25 L65 85" />
+                        {/* Logic Box (Middle) */}
+                        <rect x="15" y="35" width="70" height="30" rx="2" />
+                        <line x1="25" y1="45" x2="75" y2="45" opacity="0.2" />
+                        <line x1="25" y1="50" x2="65" y2="50" opacity="0.2" />
+                        <line x1="25" y1="55" x2="70" y2="55" opacity="0.2" />
+                        
+                        {/* Data Box (Bottom) */}
+                        <rect x="35" y="75" width="30" height="15" rx="2" />
+                        <circle cx="50" cy="82.5" r="3" opacity="0.3" />
 
-                        {/* Compass joints/details */}
-                        <circle cx="50" cy="25" r="2" fill="#2c2c2c" />
-                        <line x1="42" y1="55" x2="58" y2="55" strokeDasharray="2 2" />
-
-                        {/* Guide lines */}
-                        <path d="M50 10 L50 90 M10 50 L90 50" strokeDasharray="4 4" opacity="0.1" />
+                        {/* Connection Lines */}
+                        <path d="M50 25 L50 35" strokeDasharray="2 2" />
+                        <path d="M50 65 L50 75" strokeDasharray="2 2" />
+                        
+                        {/* Abstract Guide Lines */}
+                        <path d="M5 50 L15 50 M85 50 L95 50" opacity="0.1" />
+                        <path d="M50 5 L50 10 M50 90 L50 95" opacity="0.1" />
                     </svg>
 
                     {/* Sketchy horizontal lines extending from sides */}
