@@ -58,6 +58,7 @@ export default function SkillsSection() {
               "VS Code",
               "Database Design",
               "OOP",
+              "DevOps",
               "MVC Architecture",
               "API Integration",
               "Version Control",
